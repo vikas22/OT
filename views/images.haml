@@ -1,0 +1,7 @@
+-locals[:images].each do |key, value|
+	#{key}
+	%br
+	-value.each do |val|
+		%img{:height => "200", :src => "#{locals[:url]}#{val.key}", :width => "200"}/
+		#{val.last_modified.utc.strftime("%I:%M%p UTC")}
+	%br
