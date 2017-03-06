@@ -7,8 +7,8 @@ import re
 
 URL = "https://s3-ap-southeast-1.amazonaws.com/otimagestest/"
 REGEX = "images\/.+"
-maxWidth = 300
-maxHeight = 300
+maxWidth = 100
+maxHeight = 100
 fixRatio = 1
 ACCESS_KEY = "AKIAJA3OKAAP6QCTAZYA"
 ACCESS_SEC = "2xmZ0ejJsOsfkaOI/ptX8bLNIercOCpmvgXDzv+g"
@@ -48,6 +48,8 @@ def imageResize(key):
       nHeight = 480
 
     size = nWidth , nHeight
+    print(nWidth)
+    print(nHeight)
     img.thumbnail(size, Image.ANTIALIAS)
     newKey = str(key).replace("images/","")
     img.save('/tmp/'+ newKey)
