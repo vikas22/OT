@@ -19,7 +19,7 @@ Aws.config.update({
 S3 = Aws::S3::Resource.new(region: REGION)
 
 get '/' do
-  haml :upload
+  erb :'upload'
 end
 
 post "/" do 
@@ -34,7 +34,7 @@ get '/images' do
 
 	imagesArr= (S3.bucket(BUCKET).objects.select{|x| !is_image?(x.key)})
 	imagesHash =  imagesArr.group_by{|x| x.last_modified.strftime("%m/%d/%Y")}
-	haml :images, :locals => {:images => imagesHash, :url => S3_URL }
+	erb :images, :locals => {:images => imagesHash, :url => S3_URL }
 end
 
 def is_image?(key)
