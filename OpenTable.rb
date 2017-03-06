@@ -5,8 +5,8 @@ require 'aws-sdk'
 
 
 REGION = 'ap-southeast-1'
-ACCESS_KEY = 'AKIAJA3OKAAP6QCTAZYA'
-ACCESS_SEC = '2xmZ0ejJsOsfkaOI/ptX8bLNIercOCpmvgXDzv+g'
+ACCESS_KEY = 'xxxxx'
+ACCESS_SEC = 'xxxxx'
 BUCKET = 'otimagestest'
 BUCKET_FOLDER = 'images'
 S3_URL = "https://s3-ap-southeast-1.amazonaws.com/" + BUCKET + "/"

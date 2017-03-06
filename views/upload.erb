@@ -1,10 +1,30 @@
+
+
+<!DOCTYPE html>
 <html>
-  <body>
-    <h1>File uploader!</h1>
-    <form method="post" enctype='multipart/form-data'>
-      <input accept="image/x-png,image/gif,image/jpeg" name="myImage" type="file"></input>
-      <br/>
-      <input type='submit' value='Upload!' />
-    </form>
-  </body>
+   <head>
+       <meta charset="utf-8">
+      <meta content='width=auto, initial-scale=1.0, maximum-scale=1.0' name='viewport'/>
+      <style>
+        .ot-col-33{width:33%;display:inline-block; padding:10px; box-sizing: border-box; float: left; min-height: 1px;}
+        .ot-img{width:100%;}
+      </style>
+   </head>
+   <body style="margin:0">
+        <div style="padding: 10px;background: #F8F3F2;position: fixed;display: inline-block;width: 100%; top:0">
+            <a href="/images">images</a>
+            <a href="/thumbnails">thumbnails</a>
+        </div>
+        <div style="margin-top:50px; width:100%; display:inline-block;box-sizing: border-box; float: left; min-height: 1px;">
+            <div style="padding:20px; text-align: center; border: 1px solid #efefef;">
+                 <form method="post" enctype='multipart/form-data'>
+			      <input accept="image/x-png,image/gif,image/jpeg" name="myImage" type="file"></input>
+			      <br/>
+			      <input type='submit' value='Upload!' />
+			    </form>
+            </div>
+            
+            
+        <div>
+   </body>
 </html>

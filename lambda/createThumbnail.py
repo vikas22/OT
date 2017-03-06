@@ -10,8 +10,8 @@ REGEX = "images\/.+"
 maxWidth = 100
 maxHeight = 100
 fixRatio = 1
-ACCESS_KEY = "AKIAJA3OKAAP6QCTAZYA"
-ACCESS_SEC = "2xmZ0ejJsOsfkaOI/ptX8bLNIercOCpmvgXDzv+g"
+ACCESS_KEY = "xxx"
+ACCESS_SEC = "xxx"
 BUCKET = 'otimagestest'
 
 def imageResize(key):
