@@ -29,7 +29,7 @@ class OpenTable  < Sinatra::Base
 
 		obj = S3.bucket(BUCKET).object(BUCKET_FOLDER + "/" + params['myImage'][:filename])
 		obj.upload_file(params['myImage'][:tempfile])
-		redirect "images"
+		redirect "/images"
 	end
 
 	get '/images' do 
