@@ -1,11 +1,10 @@
 # OT
 Open Table Assignment. [Demo](http://opentabletest.heroku.com/)
 
-Project deals with uploading an image to S3 buckent and creating thumbnail of every uploaded image using AWS Lambda.
+The project deals with uploading an image to S3 bucket and creating a thumbnail for a uploaded image using AWS Lambda.
 
-* Ruby code deals with upload and UI part. Uploads to s3 bucket image folder
-* Python code for [lambda](https://github.com/vikas22/OT/tree/master/lambda) fuction, triggered on every upload to s3, gets the uploaded image, creates thumbnail of it and uploads to same bucket, thumbnail folder
-
+* Ruby code deals with upload and UI part. Uploads to s3 bucket images folder
+* Python code for [lambda](https://github.com/vikas22/OT/tree/master/lambda) function, triggered on every upload to s3 omgimagestest bucket, reads the uploaded image, creates thumbnail of it and uploads the same bucket, thumbnail folder
 
 ### Design
 
