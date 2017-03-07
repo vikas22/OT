@@ -9,4 +9,4 @@ Project deals with uploading an image to S3 buckent and creating thumbnail of ev
 
 ### Design
 
-![Design](OT/arc/arc.jpg)
+![Design](https://github.com/vikas22/OT/blob/master/arc/arc.jpg)
