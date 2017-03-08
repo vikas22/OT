@@ -6,8 +6,8 @@ require 'sinatra/base'
 class OpenTable  < Sinatra::Base
 
 	REGION = 'ap-southeast-1'
-	ACCESS_KEY = 'xxxx'
-	ACCESS_SEC = 'xxxx'
+	ACCESS_KEY = 'AKIAJPDQ36TOPARWAXWA'
+	ACCESS_SEC = 'w0xFNVVmzL7PiGPXM5f4VQ0QF04dO9IqvGmy0ZYy'
 	BUCKET = 'otimagestest'
 	BUCKET_FOLDER = 'images'
 	S3_URL = "https://s3-ap-southeast-1.amazonaws.com/" + BUCKET + "/"
@@ -31,6 +31,7 @@ class OpenTable  < Sinatra::Base
 	end
 
 	get '/images' do
+
 		imagesArr= (S3.bucket(BUCKET).objects.select{|x| !is_image?(x.key)})
 		imagesHash =  imagesArr.group_by{|x| x.last_modified.strftime("%m/%d/%Y")}
 		erb :images, :locals => {:images => imagesHash, :url => S3_URL }
