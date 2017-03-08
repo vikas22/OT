@@ -6,8 +6,8 @@ require 'sinatra/base'
 class OpenTable  < Sinatra::Base
 
 	REGION = 'ap-southeast-1'
-	ACCESS_KEY = 'AKIAJPDQ36TOPARWAXWA'
-	ACCESS_SEC = 'w0xFNVVmzL7PiGPXM5f4VQ0QF04dO9IqvGmy0ZYy'
+	ACCESS_KEY = 'xxxx'
+	ACCESS_SEC = 'xxxx'
 	BUCKET = 'otimagestest'
 	BUCKET_FOLDER = 'images'
 	S3_URL = "https://s3-ap-southeast-1.amazonaws.com/" + BUCKET + "/"
