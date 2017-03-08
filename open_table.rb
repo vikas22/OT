@@ -6,8 +6,8 @@ require 'sinatra/base'
 class OpenTable  < Sinatra::Base
 
 	REGION = 'ap-southeast-1'
-	ACCESS_KEY = 'AKIAJA3OKAAP6QCTAZYA'
-	ACCESS_SEC = '2xmZ0ejJsOsfkaOI/ptX8bLNIercOCpmvgXDzv+g'
+	ACCESS_KEY = 'xxxx'
+	ACCESS_SEC = 'xxxx'
 	BUCKET = 'otimagestest'
 	BUCKET_FOLDER = 'images'
 	S3_URL = "https://s3-ap-southeast-1.amazonaws.com/" + BUCKET + "/"
@@ -24,28 +24,17 @@ class OpenTable  < Sinatra::Base
 	  erb :'upload'
 	end
 
-	post "/" do 
+	post "/" do
 		puts params
-
 		obj = S3.bucket(BUCKET).object(BUCKET_FOLDER + "/" + params['myImage'][:filename])
-		obj.upload_file(params['myImage'][:tempfile])
-		redirect "/images"
+		obj.upload_file(params['myImage'][:tempfile], :metadata =>{ "Content-Type" =>params['myImage'][:head].split(";").last.split(" ").last})
 	end
 
-	get '/images' do 
-
+	get '/images' do
 		imagesArr= (S3.bucket(BUCKET).objects.select{|x| !is_image?(x.key)})
 		imagesHash =  imagesArr.group_by{|x| x.last_modified.strftime("%m/%d/%Y")}
 		erb :images, :locals => {:images => imagesHash, :url => S3_URL }
 	end
-
-	get '/thumbnails' do 
-
-		imagesArr= (S3.bucket(BUCKET).objects.select{|x| !is_thumbnail?(x.key)})
-		imagesHash =  imagesArr.group_by{|x| x.last_modified.strftime("%m/%d/%Y")}
-		erb :thumbnails, :locals => {:images => imagesHash, :url => S3_URL }
-	end
-
 
 	def is_image?(key)
 		key.match(REGEX).nil?

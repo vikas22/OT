@@ -5,26 +5,56 @@
    <head>
        <meta charset="utf-8">
       <meta content='width=auto, initial-scale=1.0, maximum-scale=1.0' name='viewport'/>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+      <!-- jQuery library -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
       <style>
-        .ot-col-33{width:33%;display:inline-block; padding:10px; box-sizing: border-box; float: left; min-height: 1px;}
-        .ot-img{width:100%;}
+      @import url("http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css");
+        /*
+          FORM STYLING
+        */
+        html, body, .container-table {
+           height: 100%;
+        }
+        .container-table {
+           display: table;
+        }
+        .vertical-center-row {
+           display: table-cell;
+           vertical-align: middle;
+        }
+
+        #fileselector {
+          margin: 10px;
+        }
+        #upload-file-selector {
+          display:none;
+        }
+        .margin-correction {
+          margin-right: 10px;
+        }
       </style>
    </head>
    <body style="margin:0">
-        <div style="padding: 10px;background: #F8F3F2;position: fixed;display: inline-block;width: 100%; top:0">
-            <a href="/images">images</a>
-            <a href="/thumbnails">thumbnails</a>
-        </div>
-        <div style="margin-top:50px; width:100%; display:inline-block;box-sizing: border-box; float: left; min-height: 1px;">
-            <div style="padding:20px; text-align: center; border: 1px solid #efefef;">
-                 <form method="post" enctype='multipart/form-data'>
-			      <input accept="image/x-png,image/gif,image/jpeg" name="myImage" type="file"></input>
-			      <br/>
-			      <input type='submit' value='Upload!' />
-			    </form>
-            </div>
-            
-            
-        <div>
+     <div class="container container-table">
+      <div class="row vertical-center-row">
+          <div class="text-center col-md-4 col-md-offset-4">
+            <form method="post" enctype='multipart/form-data'>
+              <h1>Select Image</h1><br/>
+           <span id="fileselector"  >
+               <label class="btn btn-default" for="upload-file-selector">
+
+                   <input id="upload-file-selector"  accept="image/x-png,image/gif,image/jpeg" name="myImage" type="file"></input>
+                   <i class="fa_icon icon-upload-alt margin-correction"></i>upload file
+               </label>
+                <input type='submit' class="btn btn-primary" value='Upload!' />
+           </span><br/>
+           <br/>
+           <a href="/images" class="btn btn-info">Images</a>
+          </div>
+      </div>
+    </div>
    </body>
 </html>

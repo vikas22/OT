@@ -4,28 +4,38 @@
    <head>
        <meta charset="utf-8">
       <meta content='width=auto, initial-scale=1.0, maximum-scale=1.0' name='viewport'/>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
       <style>
-        .ot-col-33{width:33%;display:inline-block; padding:10px; box-sizing: border-box; float: left; min-height: 1px;}
-        .ot-img{width:100%;}
-        .ot-col-100{width:100%; display:inline-block; box-sizing: border-box; float: left; min-height: 1px;}
-        .ot-date{padding:10px;}
+
+
+
       </style>
    </head>
    <body style="margin:0">
-        <div style="padding: 10px;background: #F8F3F2;position: fixed;display: inline-block;width: 100%; top:0">
-            <a href="/">upload</a>
-            <a href="/thumbnails">thumbnails</a>
-        </div>
-        <div class="ot-col-100" style="margin-top:50px;">
+        <div id="container">
         <% images.each do |key, value| %>
-            <div class="ot-col-100 ot-date"><%=key%></div>
-            <%value.each do |val|%>
-            <div class="ot-col-33">
-                <img class="ot-img" src='<%=url + val.key%>'/>
-                <div><%=val.last_modified.utc.strftime("%I:%M%p UTC")%> <a href="<%=url + val.key%>" target="_blank">original</a></div>
+            <div class="col-xs-12">
+              <h3><%=key%></h3>
             </div>
-            <%end%>
+
+              <div class="col-xs-12">
+                <%value.each do |val|%>
+                <div class="col-xs-4">
+                  <div class="thumbnail">
+                    <img src='<%=url + val.key%>' alt="..." style="height:100%;max-height:400px;">
+                    <div class="caption">
+                      <h3><%=val.key.sub('images/','')%></h3>
+                      <p><%=val.last_modified.utc.strftime("%I:%M%p UTC")%></p>
+                      <p><a href="<%=url + val.key%>" target="_blank" class="btn btn-primary" role="button">Original</a>
+                      <a href="<%=url + val.key.sub('images','thumbnails')%>"  target="_blank" class="btn btn-default" role="button">Thumbnail</a></p>
+                    </div>
+                  </div>
+                </div>
+                <%end%>
+            </div>
+
         <%end%>
-        <div>
+        </div>
    </body>
 </html>
