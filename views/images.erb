@@ -29,7 +29,7 @@
                     <img src='<%=url + val.key%>' alt="..." style="height:100%;max-height:400px;">
                     <div class="caption">
                       <h3><%=val.key.sub('images/','')%></h3>
-                      <p><%=val.last_modified.utc.strftime("%I:%M%p UTC")%></p>
+                      <p>Uploaded on <%=val.last_modified.utc.strftime("%I:%M%p UTC")%></p>
                       <p><a href="<%=url + val.key%>" target="_blank" class="btn btn-primary" role="button">Original</a>
                       <a href="<%=url + val.key.sub('images','thumbnails')%>"  target="_blank" class="btn btn-default" role="button">Thumbnail</a></p>
                     </div>
