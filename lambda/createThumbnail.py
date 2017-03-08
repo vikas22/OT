@@ -8,8 +8,8 @@ import re
 
 URL = "https://s3-ap-southeast-1.amazonaws.com/otimagestest/"
 REGEX = "images\/.+"
-maxWidth = 100
-maxHeight = 100
+maxWidth = 640
+maxHeight = 480
 fixRatio = 1
 ACCESS_KEY = "xxx"
 ACCESS_SEC = "xxx"
