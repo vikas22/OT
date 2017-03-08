@@ -28,6 +28,7 @@ class OpenTable  < Sinatra::Base
 		puts params
 		obj = S3.bucket(BUCKET).object(BUCKET_FOLDER + "/" + params['myImage'][:filename])
 		obj.upload_file(params['myImage'][:tempfile], :metadata =>{ "Content-Type" =>params['myImage'][:head].split(";").last.split(" ").last})
+		redirect "/images"
 	end
 
 	get '/images' do
